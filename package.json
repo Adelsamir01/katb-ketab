@@ -1,0 +1,9 @@
+{
+  "name": "adel-roaa-katb-ketab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Katb Ketab invitation website for Adel & Roaa — 05.10.2026",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
