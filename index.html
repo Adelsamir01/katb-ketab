@@ -87,12 +87,11 @@
 
     /* ---------- hero ---------- */
     .hero {
-      min-height: 92vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 48px 24px 32px;
+      padding: 24px 24px 8px;
       text-align: center;
       position: relative;
       z-index: 1;
@@ -136,12 +135,17 @@
     }
 
     @media (max-width: 480px) {
-      .hero { min-height: 0; padding-top: 32px; }
-      .countdown { margin: 28px 0 10px; }
+      .countdown { margin: 24px 0 8px; }
+      .card { padding: 16px 18px; min-width: 0; }
+      .map-button { margin-top: 20px; }
     }
-    @keyframes floaty {
-      0%, 100% { transform: translateY(0); }
-      50%      { transform: translateY(-9px); }
+
+    /* ---------- single-screen layout ---------- */
+    main#pre-event {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100dvh;
     }
 
     /* ---------- countdown ---------- */
@@ -149,7 +153,7 @@
       display: flex;
       justify-content: center;
       gap: clamp(6px, 1.8vw, 22px);
-      margin: 44px 0 14px;
+      margin: 32px 0 12px;
       flex-wrap: nowrap;
       width: 100%;
     }
@@ -191,14 +195,13 @@
 
     /* ---------- details ---------- */
     .details {
-      padding: 64px 0 24px;
+      padding: 20px 0 32px;
     }
     .cards {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 16px;
       flex-wrap: wrap;
-      margin-top: 36px;
     }
     .card {
       background: rgba(255, 255, 255, .05);
@@ -231,7 +234,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      margin-top: 36px;
+      margin-top: 24px;
       padding: 13px 28px;
       border: 1px solid var(--gold);
       border-radius: 999px;
@@ -244,23 +247,6 @@
     }
     .map-button svg { width: 18px; height: 18px; }
     .map-button:hover { background: var(--gold); color: var(--navy); }
-
-    footer {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 56px 24px 40px;
-      color: var(--sky);
-      font-size: .85rem;
-      letter-spacing: .12em;
-    }
-    footer .f-names {
-      font-family: 'Pinyon Script', cursive;
-      font-size: 1.9rem;
-      color: var(--gold-soft);
-      letter-spacing: 0;
-      margin-bottom: 6px;
-    }
 
     /* ---------- celebration (after countdown) ---------- */
     #celebration { display: none; }
@@ -352,11 +338,6 @@
         Open in Google Maps
       </a>
     </section>
-
-    <footer>
-      <p class="f-names">Adel &amp; Roaa</p>
-      <p>05 . 10 . 2026 · 5:00 PM · 6th of October City</p>
-    </footer>
   </main>
 
   <main id="celebration">
