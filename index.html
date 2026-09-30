@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Adel &amp; Roaa — Katb Ketab</title>
   <meta name="description" content="Adel and Roaa invite you to celebrate their Katb Ketab — Monday, October 5th, 2026 at 5:00 PM, Masjid Fadel, 6th of October City." />
+  <link rel="preload" as="image" href="assets/photo-1.jpg" fetchpriority="high" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23a9cfe8' d='M12 1l2.4 7.6L22 11l-7.6 2.4L12 21l-2.4-7.6L2 11l7.6-2.4z'/%3E%3C/svg%3E" />
   <style>
     @font-face {
@@ -114,21 +115,25 @@
     .names .amp { color: var(--gold); font-size: .6em; vertical-align: .12em; padding: 0 .1em; }
     .event {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.3rem, 4vw, 1.8rem);
+      font-size: clamp(1.1rem, 3.4vw, 1.8rem);
       letter-spacing: .45em;
       text-transform: uppercase;
       margin-top: 18px;
       color: var(--cream);
+      white-space: nowrap;
     }
     .event::before, .event::after {
       content: '';
       display: inline-block;
-      width: 46px;
+      width: clamp(16px, 5vw, 46px);
       height: 1px;
       background: var(--gold);
       vertical-align: middle;
-      margin: 0 16px;
+      margin: 0 clamp(8px, 2vw, 16px);
       opacity: .6;
+    }
+    @media (max-width: 420px) {
+      .event { letter-spacing: .28em; }
     }
 
     /* ---------- hero photo ---------- */
@@ -155,22 +160,26 @@
     .countdown {
       display: flex;
       justify-content: center;
-      gap: clamp(10px, 3vw, 22px);
+      gap: clamp(6px, 1.8vw, 22px);
       margin: 44px 0 14px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      width: 100%;
     }
     .cd-cell {
       background: rgba(255, 255, 255, .05);
       border: 1px solid rgba(217, 184, 124, .35);
       border-radius: 14px;
-      min-width: clamp(72px, 18vw, 104px);
-      padding: 18px 10px 14px;
+      flex: 1 1 0;
+      max-width: 104px;
+      min-width: 0;
+      padding: 18px 4px 14px;
       backdrop-filter: blur(4px);
+      text-align: center;
     }
     .cd-num {
       display: block;
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 7vw, 3rem);
+      font-size: clamp(1.4rem, 6.5vw, 3rem);
       font-weight: 600;
       color: var(--gold-soft);
       font-variant-numeric: tabular-nums;
@@ -178,10 +187,11 @@
     .cd-label {
       display: block;
       margin-top: 4px;
-      font-size: .68rem;
-      letter-spacing: .22em;
+      font-size: clamp(.52rem, 1.9vw, .68rem);
+      letter-spacing: .18em;
       text-transform: uppercase;
       color: var(--sky);
+      white-space: nowrap;
     }
     .cd-until {
       font-family: 'Cormorant Garamond', serif;
@@ -220,8 +230,9 @@
     }
     .card .main {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.45rem;
+      font-size: clamp(1.1rem, 4.6vw, 1.45rem);
       color: var(--cream);
+      white-space: nowrap;
     }
     .card .sub {
       margin-top: 6px;
@@ -324,7 +335,7 @@
       <p class="event">Katb Ketab</p>
 
       <div class="hero-photo">
-        <img src="assets/photo-1.jpg" alt="Adel and Roaa" />
+        <img src="assets/photo-1.jpg" alt="Adel and Roaa" width="900" height="1199" fetchpriority="high" decoding="async" />
       </div>
 
       <div class="countdown" role="timer" aria-label="Countdown to the Katb Ketab">
