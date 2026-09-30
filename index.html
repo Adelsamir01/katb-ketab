@@ -153,6 +153,11 @@
       object-fit: cover;
       border-radius: 999px 999px 14px 14px;
     }
+    @media (max-width: 480px) {
+      .hero-photo { margin-top: 26px; padding: 7px; }
+      .hero-photo img { width: min(200px, 52vw); }
+      .hero { min-height: 0; padding-top: 40px; }
+    }
     @keyframes floaty {
       0%, 100% { transform: translateY(0); }
       50%      { transform: translateY(-9px); }
