@@ -4,185 +4,423 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Adel &amp; Roaa — Katb Ketab</title>
-  <meta name="description" content="Adel and Roaa invite you to celebrate their Katb Ketab — Monday, October 5th, 2026, Masjid Fadel, 6th of October City." />
-
-  <link rel="stylesheet" href="css/style.css" />
+  <meta name="description" content="Adel and Roaa invite you to celebrate their Katb Ketab — Monday, October 5th, 2026 at 5:00 PM, Masjid Fadel, 6th of October City." />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23a9cfe8' d='M12 1l2.4 7.6L22 11l-7.6 2.4L12 21l-2.4-7.6L2 11l7.6-2.4z'/%3E%3C/svg%3E" />
+  <style>
+    @font-face {
+      font-family: 'Pinyon Script';
+      src: url('assets/fonts/pinyon-script.woff2') format('woff2');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      src: url('assets/fonts/cormorant-garamond.woff2') format('woff2');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Quicksand';
+      src: url('assets/fonts/quicksand.woff2') format('woff2');
+      font-display: swap;
+    }
+
+    :root {
+      --navy: #0d1b2e;
+      --navy-soft: #16263f;
+      --gold: #d9b87c;
+      --gold-soft: #e9d5ae;
+      --cream: #f6efe3;
+      --sky: #a9cfe8;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: radial-gradient(ellipse at 50% -10%, var(--navy-soft), var(--navy) 65%);
+      color: var(--cream);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ---------- starfield ---------- */
+    .stars, .stars::before, .stars::after {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-repeat: repeat;
+    }
+    .stars {
+      background-image:
+        radial-gradient(1.5px 1.5px at 20px 30px, #fff 50%, transparent 51%),
+        radial-gradient(1px 1px at 130px 80px, var(--sky) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 220px 160px, #fff 50%, transparent 51%),
+        radial-gradient(1px 1px at 320px 40px, var(--gold-soft) 50%, transparent 51%),
+        radial-gradient(1px 1px at 420px 200px, #fff 50%, transparent 51%);
+      background-size: 450px 250px;
+      animation: twinkle 6s ease-in-out infinite alternate;
+    }
+    .stars::before {
+      content: '';
+      background-image:
+        radial-gradient(1px 1px at 60px 120px, #fff 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 180px 20px, var(--sky) 50%, transparent 51%),
+        radial-gradient(1px 1px at 280px 190px, #fff 50%, transparent 51%);
+      background-size: 380px 220px;
+      animation: twinkle 8s ease-in-out infinite alternate-reverse;
+    }
+    @keyframes twinkle {
+      from { opacity: .45; }
+      to   { opacity: 1; }
+    }
+
+    main { position: relative; z-index: 1; }
+
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    /* ---------- hero ---------- */
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 48px 24px 32px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .kicker {
+      font-size: .8rem;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 28px;
+    }
+    .names {
+      font-family: 'Pinyon Script', cursive;
+      font-size: clamp(3.2rem, 11vw, 6rem);
+      line-height: 1.15;
+      color: var(--gold-soft);
+      text-shadow: 0 0 40px rgba(217, 184, 124, .25);
+    }
+    .names .amp { color: var(--gold); font-size: .6em; vertical-align: .12em; padding: 0 .1em; }
+    .event {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 4vw, 1.8rem);
+      letter-spacing: .45em;
+      text-transform: uppercase;
+      margin-top: 18px;
+      color: var(--cream);
+    }
+    .event::before, .event::after {
+      content: '';
+      display: inline-block;
+      width: 46px;
+      height: 1px;
+      background: var(--gold);
+      vertical-align: middle;
+      margin: 0 16px;
+      opacity: .6;
+    }
+
+    /* ---------- hero photo ---------- */
+    .hero-photo {
+      margin-top: 38px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(217, 184, 124, .4);
+      border-radius: 18px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, .45), 0 0 60px rgba(217, 184, 124, .12);
+      animation: floaty 6s ease-in-out infinite;
+    }
+    .hero-photo img {
+      display: block;
+      width: min(340px, 72vw);
+      border-radius: 11px;
+    }
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-9px); }
+    }
+
+    /* ---------- countdown ---------- */
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: clamp(10px, 3vw, 22px);
+      margin: 44px 0 14px;
+      flex-wrap: wrap;
+    }
+    .cd-cell {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(217, 184, 124, .35);
+      border-radius: 14px;
+      min-width: clamp(72px, 18vw, 104px);
+      padding: 18px 10px 14px;
+      backdrop-filter: blur(4px);
+    }
+    .cd-num {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 7vw, 3rem);
+      font-weight: 600;
+      color: var(--gold-soft);
+      font-variant-numeric: tabular-nums;
+    }
+    .cd-label {
+      display: block;
+      margin-top: 4px;
+      font-size: .68rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--sky);
+    }
+    .cd-until {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--cream);
+      opacity: .85;
+    }
+
+    /* ---------- details ---------- */
+    .details {
+      padding: 64px 0 24px;
+    }
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 36px;
+    }
+    .card {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(169, 207, 232, .22);
+      border-radius: 16px;
+      padding: 28px 32px;
+      min-width: 240px;
+      flex: 0 1 300px;
+    }
+    .card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .95rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .card .main {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      color: var(--cream);
+    }
+    .card .sub {
+      margin-top: 6px;
+      font-size: .9rem;
+      color: var(--sky);
+    }
+    .map-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 36px;
+      padding: 13px 28px;
+      border: 1px solid var(--gold);
+      border-radius: 999px;
+      color: var(--gold-soft);
+      text-decoration: none;
+      font-size: .85rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      transition: background .25s, color .25s;
+    }
+    .map-button svg { width: 18px; height: 18px; }
+    .map-button:hover { background: var(--gold); color: var(--navy); }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 56px 24px 40px;
+      color: var(--sky);
+      font-size: .85rem;
+      letter-spacing: .12em;
+    }
+    footer .f-names {
+      font-family: 'Pinyon Script', cursive;
+      font-size: 1.9rem;
+      color: var(--gold-soft);
+      letter-spacing: 0;
+      margin-bottom: 6px;
+    }
+
+    /* ---------- celebration (after countdown) ---------- */
+    #celebration { display: none; }
+    body.celebrate #pre-event { display: none; }
+    body.celebrate #celebration {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 48px 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .cel-ar {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 6vw, 2.6rem);
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .cel-title {
+      font-family: 'Pinyon Script', cursive;
+      font-size: clamp(2.6rem, 9vw, 4.8rem);
+      color: var(--gold-soft);
+      text-shadow: 0 0 46px rgba(217, 184, 124, .35);
+    }
+    .cel-sub {
+      margin-top: 22px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.05rem, 3.5vw, 1.35rem);
+      color: var(--cream);
+      opacity: .9;
+      max-width: 520px;
+    }
+    .heart {
+      position: fixed;
+      bottom: -30px;
+      font-size: 22px;
+      color: var(--gold);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 2;
+      animation: rise linear forwards;
+    }
+    @keyframes rise {
+      0%   { transform: translateY(0) scale(.6) rotate(-8deg); opacity: 0; }
+      15%  { opacity: .9; }
+      100% { transform: translateY(-110vh) scale(1.15) rotate(10deg); opacity: 0; }
+    }
+  </style>
 </head>
 <body>
+  <div class="stars" aria-hidden="true"></div>
 
-  <!-- ============ INVITATION OPENING OVERLAY ============ -->
-  <div id="invite-overlay" aria-hidden="true">
-    <div class="overlay-stars" id="overlay-stars"></div>
+  <main id="pre-event">
+    <header class="hero">
+      <p class="kicker">Together with their families</p>
+      <h1 class="names">Adel <span class="amp">&amp;</span> Roaa</h1>
+      <p class="event">Katb Ketab</p>
 
-    <div class="envelope-scene">
-      <div class="envelope">
-        <div class="env-back"></div>
-        <div class="env-card">
-          <span class="env-card-kicker">You're invited to the</span>
-          <span class="env-card-title">Katb Ketab</span>
-          <span class="env-card-names">Adel &amp; Roaa</span>
-          <span class="env-card-date">05 . 10 . 2026</span>
-        </div>
-        <div class="env-front"></div>
-        <div class="env-flap"></div>
-        <div class="env-seal">A<span>&amp;</span>R</div>
-      </div>
-      <p class="overlay-hint">tap to open your invitation</p>
-    </div>
-
-  </div>
-
-  <!-- birds fly across the page as the invitation reveals -->
-  <div class="birds" id="birds" aria-hidden="true"></div>
-
-  <!-- ============ HERO ============ -->
-  <header class="hero" id="top">
-    <div class="hero-inner">
-      <p class="hero-kicker">Together with their families</p>
-      <h1 class="hero-names">
-        <span class="name">Adel</span>
-        <span class="amp">&amp;</span>
-        <span class="name">Roaa</span>
-      </h1>
-      <p class="hero-event">Katb Ketab</p>
-      <p class="hero-date">Monday, October 5<sup>th</sup>, 2026</p>
-
-      <div class="hero-photo-frame float-slow">
+      <div class="hero-photo">
         <img src="assets/photo-1.jpg" alt="Adel and Roaa" />
-        <div class="frame-stars" aria-hidden="true"></div>
       </div>
 
-      <a class="scroll-hint" href="#countdown" aria-label="Scroll down">
-        <span></span>
+      <div class="countdown" role="timer" aria-label="Countdown to the Katb Ketab">
+        <div class="cd-cell"><span class="cd-num" id="cd-days">0</span><span class="cd-label">Days</span></div>
+        <div class="cd-cell"><span class="cd-num" id="cd-hours">0</span><span class="cd-label">Hours</span></div>
+        <div class="cd-cell"><span class="cd-num" id="cd-mins">0</span><span class="cd-label">Minutes</span></div>
+        <div class="cd-cell"><span class="cd-num" id="cd-secs">0</span><span class="cd-label">Seconds</span></div>
+      </div>
+      <p class="cd-until">until we say <em>qubul</em></p>
+    </header>
+
+    <section class="details wrap">
+      <div class="cards">
+        <div class="card">
+          <h3>When</h3>
+          <p class="main">Monday, October 5<sup>th</sup>, 2026</p>
+          <p class="sub">5:00 PM</p>
+        </div>
+        <div class="card">
+          <h3>Where</h3>
+          <p class="main">Masjid Fadel</p>
+          <p class="sub">6th of October City, Egypt</p>
+        </div>
+      </div>
+      <a class="map-button" href="https://maps.app.goo.gl/qjAHNEWrjSn1Mie99" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <path d="M12 21s-7-5.6-7-11a7 7 0 1 1 14 0c0 5.4-7 11-7 11z"/>
+          <circle cx="12" cy="10" r="2.6"/>
+        </svg>
+        Open in Google Maps
       </a>
-    </div>
-  </header>
-
-  <main>
-
-    <!-- ============ COUNTDOWN ============ -->
-    <section class="section countdown-section" id="countdown">
-      <div class="container reveal">
-        <h2 class="section-title">Counting Down the Moments</h2>
-        <div class="divider" aria-hidden="true"><i></i><b></b><i></i></div>
-        <div class="countdown" id="countdown-grid">
-          <div class="cd-cell"><span class="cd-num" id="cd-days">0</span><span class="cd-label">Days</span></div>
-          <div class="cd-cell"><span class="cd-num" id="cd-hours">0</span><span class="cd-label">Hours</span></div>
-          <div class="cd-cell"><span class="cd-num" id="cd-mins">0</span><span class="cd-label">Minutes</span></div>
-          <div class="cd-cell"><span class="cd-num" id="cd-secs">0</span><span class="cd-label">Seconds</span></div>
-        </div>
-        <p class="cd-until">until we say <em>qubul</em></p>
-      </div>
     </section>
 
-    <!-- ============ GALLERY ============ -->
-    <section class="section gallery-section" id="gallery">
-      <div class="container reveal">
-        <h2 class="section-title">Little Moments</h2>
-        <div class="divider" aria-hidden="true"><i></i><b></b><i></i></div>
-        <p class="section-sub">Swipe through a few of our favorite memories together.</p>
-
-        <div class="carousel reveal-child">
-          <div class="carousel-track" id="carousel-track" tabindex="0" aria-label="Photo carousel — swipe or use the arrow buttons">
-            <figure class="carousel-slide"><img src="assets/photo-2.jpeg" alt="Adel and Roaa — memory 1" loading="lazy" /></figure>
-            <figure class="carousel-slide"><img src="assets/photo-3.jpeg" alt="Adel and Roaa — memory 2" loading="lazy" /></figure>
-            <figure class="carousel-slide"><img src="assets/photo-4.jpeg" alt="Adel and Roaa — memory 3" loading="lazy" /></figure>
-            <figure class="carousel-slide"><img src="assets/photo-5.jpeg" alt="Adel and Roaa — memory 4" loading="lazy" /></figure>
-            <figure class="carousel-slide"><img src="assets/photo-6.jpeg" alt="Adel and Roaa — memory 5" loading="lazy" /></figure>
-            <figure class="carousel-slide"><img src="assets/photo-7.jpeg" alt="Adel and Roaa — memory 6" loading="lazy" /></figure>
-          </div>
-          <button type="button" class="carousel-btn prev" id="car-prev" aria-label="Previous photo">‹</button>
-          <button type="button" class="carousel-btn next" id="car-next" aria-label="Next photo">›</button>
-          <div class="carousel-dots" id="car-dots"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ DETAILS ============ -->
-    <section class="section details-section" id="details">
-      <div class="container reveal">
-        <h2 class="section-title light">The Celebration</h2>
-        <div class="divider light" aria-hidden="true"><i></i><b></b><i></i></div>
-
-        <div class="details-cards">
-          <div class="detail-card reveal-child">
-            <div class="detail-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-                <rect x="3" y="5" width="18" height="16" rx="2.5"/>
-                <path d="M3 10h18M8 3v4M16 3v4"/>
-                <path d="M9 15.5l2 2 4-4.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <h3>When</h3>
-            <p class="detail-main">Monday, October 5<sup>th</sup>, 2026</p>
-            <p class="detail-sub">Save the date — more details will follow</p>
-          </div>
-
-          <div class="detail-card reveal-child">
-            <div class="detail-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-                <path d="M12 21s-7-5.6-7-11a7 7 0 1 1 14 0c0 5.4-7 11-7 11z"/>
-                <circle cx="12" cy="10" r="2.6"/>
-              </svg>
-            </div>
-            <h3>Where</h3>
-            <p class="detail-main">Masjid Fadel</p>
-            <p class="detail-sub">6th of October City, Egypt</p>
-          </div>
-        </div>
-
-        <a class="map-button" href="https://maps.app.goo.gl/qjAHNEWrjSn1Mie99" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-            <path d="M12 21s-7-5.6-7-11a7 7 0 1 1 14 0c0 5.4-7 11-7 11z"/>
-            <circle cx="12" cy="10" r="2.6"/>
-          </svg>
-          Open in Google Maps
-        </a>
-      </div>
-    </section>
-
-    <!-- ============ WISHES ============ -->
-    <section class="section wishes-section" id="wishes">
-      <div class="container reveal">
-        <h2 class="section-title light">Leave Us a Wish</h2>
-        <div class="divider light" aria-hidden="true"><i></i><b></b><i></i></div>
-        <p class="section-sub light">
-          Write a wish for Adel &amp; Roaa and watch it float into our little galaxy of love.
-        </p>
-
-        <form class="wish-form" id="wish-form" autocomplete="off">
-          <div class="wish-field">
-            <label for="wish-name">Your name</label>
-            <input type="text" id="wish-name" name="name" maxlength="40" placeholder="e.g. Sara Ahmed" required />
-          </div>
-          <div class="wish-field">
-            <label for="wish-message">Your wish</label>
-            <textarea id="wish-message" name="message" rows="3" maxlength="220" placeholder="May your life together be full of love and laughter…" required></textarea>
-            <span class="char-count" id="char-count">0 / 220</span>
-          </div>
-          <button type="submit" class="wish-button" id="wish-submit">
-            <span>Send it to the stars</span>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.1 6.6L21 11l-6.9 2.4L12 20l-2.1-6.6L3 11l6.9-2.4z"/></svg>
-          </button>
-          <p class="wish-feedback" id="wish-feedback" role="status"></p>
-        </form>
-
-        <div class="galaxy-wrap">
-          <canvas id="galaxy" aria-label="Floating bubbles with wishes from guests"></canvas>
-          <p class="galaxy-hint" id="galaxy-hint">Tap a bubble to read it · drag your finger through the stars</p>
-        </div>
-      </div>
-    </section>
-
+    <footer>
+      <p class="f-names">Adel &amp; Roaa</p>
+      <p>05 . 10 . 2026 · 5:00 PM · 6th of October City</p>
+    </footer>
   </main>
 
-  <footer class="footer">
-    <p class="footer-names">Adel &amp; Roaa</p>
-    <p class="footer-date">05 . 10 . 2026 · 6th of October City</p>
-    <p class="footer-note">We can't wait to celebrate with you</p>
-  </footer>
+  <main id="celebration">
+    <p class="cel-ar">تم كتب الكتاب · الحمد لله</p>
+    <h1 class="cel-title">Adel &amp; Roaa</h1>
+    <p class="cel-sub">
+      The Katb Ketab has been celebrated — Monday, October 5<sup>th</sup>, 2026,
+      Masjid Fadel, 6th of October City.<br />
+      Thank you for your love and prayers. The best is yet to come.
+    </p>
+  </main>
 
-  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      // Event: Monday, October 5th 2026, 5:00 PM (visitor's local time)
+      var TARGET = new Date(2026, 9, 5, 17, 0, 0).getTime();
+
+      var daysEl = document.getElementById('cd-days');
+      var hoursEl = document.getElementById('cd-hours');
+      var minsEl = document.getElementById('cd-mins');
+      var secsEl = document.getElementById('cd-secs');
+
+      function pad(n) { return String(n).padStart(2, '0'); }
+
+      function startCelebration() {
+        document.body.classList.add('celebrate');
+        // gentle floating hearts
+        var glyphs = ['\u2665', '\u2726', '\u2736'];
+        setInterval(function () {
+          var h = document.createElement('span');
+          h.className = 'heart';
+          h.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+          h.style.left = Math.random() * 100 + 'vw';
+          h.style.fontSize = 14 + Math.random() * 22 + 'px';
+          h.style.animationDuration = 5 + Math.random() * 5 + 's';
+          document.body.appendChild(h);
+          setTimeout(function () { h.remove(); }, 11000);
+        }, 450);
+      }
+
+      function tick() {
+        var diff = TARGET - Date.now();
+        if (diff <= 0) {
+          startCelebration();
+          return;
+        }
+        var s = Math.floor(diff / 1000);
+        daysEl.textContent = Math.floor(s / 86400);
+        hoursEl.textContent = pad(Math.floor((s % 86400) / 3600));
+        minsEl.textContent = pad(Math.floor((s % 3600) / 60));
+        secsEl.textContent = pad(s % 60);
+        setTimeout(tick, 1000);
+      }
+
+      tick();
+    })();
+  </script>
 </body>
 </html>
