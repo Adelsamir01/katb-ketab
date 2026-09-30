@@ -141,15 +141,17 @@
       margin-top: 38px;
       padding: 10px;
       background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(217, 184, 124, .4);
-      border-radius: 18px;
-      box-shadow: 0 18px 50px rgba(0, 0, 0, .45), 0 0 60px rgba(217, 184, 124, .12);
+      border: 1px solid rgba(169, 207, 232, .35);
+      border-radius: 999px 999px 22px 22px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, .35), 0 0 60px rgba(217, 184, 124, .12);
       animation: floaty 6s ease-in-out infinite;
     }
     .hero-photo img {
       display: block;
-      width: min(340px, 72vw);
-      border-radius: 11px;
+      width: min(300px, 68vw);
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 999px 999px 14px 14px;
     }
     @keyframes floaty {
       0%, 100% { transform: translateY(0); }
