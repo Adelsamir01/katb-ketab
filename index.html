@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Adel &amp; Roaa — Katb Ketab</title>
   <meta name="description" content="Adel and Roaa invite you to celebrate their Katb Ketab — Monday, October 5th, 2026 at 5:00 PM, Masjid Fadel, 6th of October City." />
-  <link rel="preload" as="image" href="assets/photo-1.jpg" fetchpriority="high" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23a9cfe8' d='M12 1l2.4 7.6L22 11l-7.6 2.4L12 21l-2.4-7.6L2 11l7.6-2.4z'/%3E%3C/svg%3E" />
   <style>
     @font-face {
@@ -136,23 +135,6 @@
       .event { letter-spacing: .28em; }
     }
 
-    /* ---------- hero photo ---------- */
-    .hero-photo {
-      margin: 2.6rem auto 0;
-      padding: 10px;
-      background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(169, 207, 232, .35);
-      border-radius: 999px 999px 22px 22px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, .35);
-      animation: floaty 6s ease-in-out infinite;
-    }
-    .hero-photo img {
-      display: block;
-      width: min(300px, 68vw);
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      border-radius: 999px 999px 14px 14px;
-    }
     @media (max-width: 480px) {
       .hero { min-height: 0; padding-top: 32px; }
       .countdown { margin: 28px 0 10px; }
@@ -339,10 +321,6 @@
     <header class="hero">
       <h1 class="names">Adel <span class="amp">&amp;</span> Roaa</h1>
       <p class="event">Katb Ketab</p>
-
-      <div class="hero-photo">
-        <img src="assets/photo-1.jpg" alt="Adel and Roaa" width="2252" height="3000" fetchpriority="high" decoding="async" />
-      </div>
 
       <div class="countdown" role="timer" aria-label="Countdown to the Katb Ketab">
         <div class="cd-cell"><span class="cd-num" id="cd-days">0</span><span class="cd-label">Days</span></div>
